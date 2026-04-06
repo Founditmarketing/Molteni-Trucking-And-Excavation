@@ -47,32 +47,13 @@ export const ReadReviews = () => {
           <Eyebrow>What Our Customers Say</Eyebrow>
           <h1 className="text-6xl md:text-8xl text-white mb-8">Real Work. <br />Real Neighbors.</h1>
           <div className="flex flex-col items-center gap-4">
-            <div className="flex items-center gap-4">
-              <span className="font-display text-7xl text-primary-teal">5.0</span>
-              <div className="flex gap-1">
-                {[1, 2, 3, 4, 5].map(s => <Star key={s} size={24} className="fill-primary-teal text-primary-teal" />)}
-              </div>
+            <div className="flex gap-2">
+              {[1, 2, 3, 4, 5].map(s => <Star key={s} size={28} className="fill-primary-teal text-primary-teal" />)}
             </div>
-            <p className="text-white/50 font-condensed text-sm uppercase tracking-widest">Based on customer reviews across Northeast Texas</p>
+            <p className="text-white/50 font-condensed text-sm uppercase tracking-widest">Rated by customers across Northeast Texas</p>
           </div>
         </div>
       </section>
-
-      {/* Metrics */}
-      <Section className="bg-off-white py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {[
-            { val: '5.0', label: 'Overall Rating' },
-            { val: '98%', label: 'Repeat Customers' },
-            { val: '100%', label: 'Recommend to Neighbors' }
-          ].map(metric => (
-            <div key={metric.label} className="text-center">
-              <div className="font-display text-6xl text-primary-teal mb-2">{metric.val}</div>
-              <div className="font-condensed text-xs text-mid-grey uppercase tracking-widest">{metric.label}</div>
-            </div>
-          ))}
-        </div>
-      </Section>
 
       {/* Grid */}
       <Section dark>

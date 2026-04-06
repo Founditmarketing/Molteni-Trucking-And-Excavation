@@ -95,10 +95,9 @@ export const About = () => {
 
       {/* Stats */}
       <section className="bg-primary-teal py-16 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-12">
-          <StatCounter end={20} suffix="+" label="Years of Experience" />
-          <StatCounter end={500} suffix="+" label="Projects Completed" />
-          <StatCounter end={3} label="Counties of Coverage" />
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+          <StatCounter end={5} label="Counties Served" />
+          <StatCounter end={100} suffix="%" label="Family Owned & Operated" />
           <StatCounter end={100} suffix="%" label="Free On-Site Consultation" />
         </div>
       </section>

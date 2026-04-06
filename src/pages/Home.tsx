@@ -94,9 +94,9 @@ export const Home = () => {
           {/* Stats Column */}
           <div className="hidden lg:col-span-4 lg:flex flex-col space-y-12 items-end">
             {[
-              { num: '20+', label: 'Years Active' },
+              { num: '5', label: 'County Service Area' },
               { num: '100%', label: 'Family Owned' },
-              { num: 'NE', label: 'Texas Coverage' }
+              { num: 'NE TX', label: 'Based Locally' }
             ].map((stat, i) => (
               <motion.div 
                 key={stat.label}
@@ -144,11 +144,10 @@ export const Home = () => {
 
       {/* Stats Bar */}
       <section className="bg-near-black py-16 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-12">
-          <StatCounter end={20} suffix="+" label="Years of Experience" />
-          <StatCounter end={500} suffix="+" label="Projects Completed" />
-          <StatCounter end={3} label="Counties of Coverage" />
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+          <StatCounter end={5} label="Counties Served" />
           <StatCounter end={100} suffix="%" label="Family Owned & Operated" />
+          <StatCounter end={100} suffix="%" label="Free On-Site Quotes" />
         </div>
       </section>
 
@@ -163,8 +162,8 @@ export const Home = () => {
               className="w-full h-[500px] object-cover shadow-2xl"
             />
             <div className="absolute bottom-8 left-8 bg-primary-teal p-8 shadow-xl text-white">
-              <div className="font-display text-5xl leading-none">20+</div>
-              <div className="font-condensed text-xs uppercase tracking-widest">Years Serving NE TX</div>
+              <div className="font-display text-3xl leading-tight">NE Texas</div>
+              <div className="font-condensed text-xs uppercase tracking-widest">Local Crew. Local Roots.</div>
             </div>
           </div>
 

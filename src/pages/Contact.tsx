@@ -156,28 +156,20 @@ export const Contact = () => {
         </div>
       </section>
 
-      {/* Hours */}
+      {/* Availability */}
       <Section className="bg-off-white text-center">
         <div className="max-w-2xl mx-auto space-y-8">
           <div className="w-16 h-16 bg-primary-teal/10 flex items-center justify-center text-primary-teal mx-auto">
             <Clock size={32} />
           </div>
-          <h2 className="text-4xl md:text-5xl">Business Hours</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-left max-w-md mx-auto">
-            <div className="space-y-2">
-              <div className="font-condensed font-bold uppercase tracking-wider text-primary-teal">Mon - Fri</div>
-              <div className="text-2xl font-display">7:00 AM - 6:00 PM</div>
-            </div>
-            <div className="space-y-2">
-              <div className="font-condensed font-bold uppercase tracking-wider text-primary-teal">Saturday</div>
-              <div className="text-2xl font-display">8:00 AM - 4:00 PM</div>
-            </div>
-            <div className="space-y-2">
-              <div className="font-condensed font-bold uppercase tracking-wider text-primary-teal">Sunday</div>
-              <div className="text-2xl font-display">Closed</div>
-            </div>
-          </div>
-          <p className="text-mid-grey italic">For urgent jobs, call directly — we do our best to accommodate time-sensitive projects.</p>
+          <h2 className="text-4xl md:text-5xl">Ready When You Are.</h2>
+          <p className="text-mid-grey text-lg leading-relaxed">
+            Aldo answers his own phone. Call to check availability and schedule a free on-site visit — he'll give you a straight answer, fast.
+          </p>
+          <a href={`tel:${BUSINESS_INFO.phone}`} className="inline-block">
+            <div className="font-display text-4xl md:text-5xl text-primary-teal">{BUSINESS_INFO.phone}</div>
+          </a>
+          <p className="text-mid-grey italic text-sm">For urgent jobs, call directly — we do our best to accommodate time-sensitive projects.</p>
         </div>
       </Section>
 
