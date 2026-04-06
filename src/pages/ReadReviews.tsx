@@ -68,26 +68,6 @@ export const ReadReviews = () => {
         </div>
       </Section>
 
-      {/* Pull Quotes */}
-      <Section className="bg-off-white">
-        <div className="space-y-16">
-          {[
-            { q: 'Honest & Fair', text: 'The honesty, work ethic, and attention to detail is very refreshing. The price is very fair also.', author: 'Tara O\'Bryan — Google Review' },
-            { q: 'Second to None', text: 'Character, service, earth sculpting skill, are all attributes Aldo and his team have.', author: 'Dwight Patton — Google Review' },
-            { q: 'Local & Trusted', text: 'Great family owned company around for house pads, ponds, grading and much more.', author: 'Seain Barrett — Google Review' }
-          ].map(quote => (
-            <div key={quote.q} className="max-w-4xl mx-auto text-center space-y-6">
-              <Quote size={48} className="mx-auto text-primary-teal/20" />
-              <p className="text-3xl md:text-4xl font-body font-light italic leading-tight">"{quote.text}"</p>
-              <div className="flex items-center justify-center gap-4">
-                <div className="h-px w-12 bg-primary-teal" />
-                <span className="font-condensed font-bold uppercase tracking-widest text-sm">{quote.author}</span>
-                <div className="h-px w-12 bg-primary-teal" />
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
 
       {/* Work Photos */}
       <Section>
