@@ -66,24 +66,42 @@ export const About = () => {
         </div>
       </Section>
 
-      {/* Meet Aldo */}
+      {/* Personal Accountability */}
       <Section dark>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <img src={ASSETS.gallery.G} alt="Aldo Molteni" className="w-full h-[500px] object-cover grayscale" />
+          {/* Work image in place of portrait */}
+          <div className="relative">
+            <img src={ASSETS.gallery.A} alt="Molteni crew at work" className="w-full h-[500px] object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-near-black/80 via-transparent to-transparent" />
+            <div className="absolute bottom-0 left-0 p-8">
+              <div className="font-condensed text-xs text-primary-teal uppercase tracking-widest mb-2">The Molteni Standard</div>
+              <div className="font-display text-2xl text-white leading-tight">Every job done like<br />it's our own land.</div>
+            </div>
+          </div>
+
           <div className="space-y-8">
-            <h2 className="text-5xl md:text-6xl">Meet Aldo Molteni</h2>
-            <p className="text-white/70 leading-relaxed">
-              Aldo's personal involvement is at the heart of every project. With Northeast Texas roots and decades of hands-on experience operating heavy equipment, he brings a level of expertise that ensures every job—from pond construction to land clearing—is executed with precision.
-            </p>
+            <div>
+              <h2 className="text-5xl md:text-6xl mb-6">Aldo's On<br />Every Job.</h2>
+              <div className="border-l-4 border-primary-teal pl-6 py-2 mb-8">
+                <p className="text-white/80 text-xl italic leading-relaxed font-light">
+                  "We take our customers' needs as our own. That's not a slogan — it's how this business operates."
+                </p>
+              </div>
+              <p className="text-white/60 leading-relaxed">
+                Aldo's personal involvement is at the heart of every project. He walks the property with you, builds the plan with you, and his crew executes it. No middlemen, no hand-offs — just a local operator who takes accountability seriously.
+              </p>
+            </div>
+
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {['Pond & Lake Construction', 'Land Clearing & Brush Removal', 'Grading & Foundation Work', 'Equipment Hauling & Operation'].map(item => (
                 <li key={item} className="flex items-center gap-3 text-white/80">
-                  <div className="w-2 h-2 bg-primary-teal" />
+                  <div className="w-2 h-2 bg-primary-teal shrink-0" />
                   <span className="font-condensed uppercase tracking-wider text-sm">{item}</span>
                 </li>
               ))}
             </ul>
-            <div className="pt-8 space-y-6">
+
+            <div className="pt-4 space-y-6">
               <div className="font-display text-5xl text-primary-teal">{BUSINESS_INFO.phone}</div>
               <a href={`tel:${BUSINESS_INFO.phone}`}>
                 <Button variant="primary">Call Aldo Directly</Button>

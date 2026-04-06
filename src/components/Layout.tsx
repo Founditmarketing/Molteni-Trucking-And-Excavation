@@ -235,15 +235,14 @@ export const Footer = () => {
           © {new Date().getFullYear()} Aldo Molteni Trucking and Excavation Inc. All rights reserved.
         </p>
         <div className="flex space-x-4">
-          {['FB', 'LI', 'X'].map(social => (
-            <a 
-              key={social}
-              href={social === 'FB' ? BUSINESS_INFO.facebook : '#'}
-              className="w-9 h-9 border border-white/15 flex items-center justify-center text-xs font-bold hover:bg-primary-teal hover:border-primary-teal transition-all"
-            >
-              {social}
-            </a>
-          ))}
+          <a
+            href={BUSINESS_INFO.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-9 h-9 border border-white/15 flex items-center justify-center text-xs font-bold hover:bg-primary-teal hover:border-primary-teal transition-all"
+          >
+            FB
+          </a>
         </div>
       </div>
     </footer>
