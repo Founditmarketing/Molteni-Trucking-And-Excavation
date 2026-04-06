@@ -404,9 +404,9 @@ export const Home = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {[
-            { name: 'Hopkins County Landowner', text: 'Aldo and his crew did an outstanding job clearing our land and building our pond. They showed up when they said they would and the quality was better than expected.' },
-            { name: 'Franklin County Customer', text: 'Best experience I have had hiring a local contractor. Aldo came out personally, walked the site with me, and gave me a straight honest quote.' },
-            { name: 'Sulphur Springs Resident', text: 'If you need dirt work done in Northeast Texas, call Molteni first. Personal service and quality Aldo brings to every job site is unmatched.' }
+            { name: 'Dwight Patton', text: 'If you are fortunate enough to have Aldo Molteni and his crew work on your project, you are blessed. I cannot give high enough praise for the work he did at my place. Character, service, earth sculpting skill, are all attributes Aldo and his team have.' },
+            { name: 'Tara O\'Bryan', text: 'My husband and I can not be more pleased with the work this company did at our place. The honesty, work ethic, and attention to detail is very refreshing. There is no question who we will call on any work we need in the future.' },
+            { name: 'Seain Barrett', text: 'Great family owned company around for house pads, ponds, grading and much more. I have them work on two pad and my drives now.' }
           ].map((review) => (
             <div key={review.name} className="bg-white/5 border border-primary-teal/20 p-8 relative group hover:bg-white/10 hover:-translate-y-1 transition-all">
               <Quote className="absolute top-4 right-4 text-primary-teal/10 w-16 h-16" />

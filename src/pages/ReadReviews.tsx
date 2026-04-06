@@ -7,34 +7,24 @@ import { ASSETS, BUSINESS_INFO } from '@/src/constants';
 export const ReadReviews = () => {
   const reviews = [
     { 
-      name: 'Hopkins County Landowner', 
-      service: 'Excavation & Pond Construction',
-      text: 'Aldo and his crew did an outstanding job clearing our land and building our pond. They showed up when they said they would, did exactly what they promised, and the quality was better than I expected. Already recommended them to three neighbors.' 
+      name: 'Dwight Patton', 
+      service: 'Road & Site Preparation',
+      text: 'If you are fortunate enough to have Aldo Molteni and his crew work on your project, you are blessed. I cannot give high enough praise for the work he did at my place. He and his crew put in a road on a 17 acre parcel and created a barndominium pad for me in preparation for a concrete slab. My sister who is always focused on the way things look said "this road is beautiful" and I absolutely agree. Character, service, earth sculpting skill, are all attributes Aldo and his team have. If you\'re in East Texas and need any kind of earth moving service Aldo and his team are the guys to go to!' 
     },
     { 
-      name: 'Franklin County Customer', 
-      service: 'Rock & Gravel Delivery',
-      text: 'Best experience I have had hiring a local contractor. Aldo came out personally, walked the site with me, and gave me a straight honest quote. The rock delivery was on time and exactly what we needed. No surprises at the end.' 
+      name: 'Tara O\'Bryan', 
+      service: 'Excavation & Dirt Work',
+      text: 'My husband and I can not be more pleased with the work this company did at our place. The honesty, work ethic, and attention to detail is very refreshing. The price is very fair also. There is no question who we will call on any work we need in the future. Thanks Aldo and crew!' 
     },
     { 
-      name: 'Morris County Resident', 
-      service: 'Excavation',
-      text: 'If you need dirt work done in Northeast Texas, call Molteni first. We have used bigger companies before and they do not hold a candle to the personal service and quality Aldo brings to every job site.' 
+      name: 'Seain Barrett', 
+      service: 'House Pads, Ponds & Drives',
+      text: 'Great family owned company around for house pads, ponds, grading and much more. I have them work on two pad and my drives now.' 
     },
     { 
-      name: 'Sulphur Springs Homeowner', 
-      service: 'Sand Delivery',
-      text: 'Ordered sand for a drainage project on our property. The driver was professional, placed it exactly where I needed it, and the price was fair. Will use them again for our driveway gravel this fall.' 
-    },
-    { 
-      name: 'Hopkins County Ranch Owner', 
-      service: 'Pond Construction',
-      text: 'Had a pond built last year and it turned out exactly how we envisioned. Aldo walked the property with us twice before any equipment moved, made sure we understood the plan, and executed it cleanly.' 
-    },
-    { 
-      name: 'Mt. Vernon Area Customer', 
-      service: 'Land Clearing',
-      text: 'Called about a land clearing project and had a quote in two days. Work was done on schedule, site was cleaned up when they left, and Aldo checked in with us at the end to make sure we were satisfied.' 
+      name: 'Ben Brown', 
+      service: 'Pond Excavation',
+      text: 'Helpful company. They have really helped a lot digging out my pond! Reasonable prices!' 
     }
   ];
 
@@ -82,9 +72,9 @@ export const ReadReviews = () => {
       <Section className="bg-off-white">
         <div className="space-y-16">
           {[
-            { q: 'Speed & Reliability', text: 'They showed up when they said they would and did exactly what they promised.', author: 'Franklin County Customer' },
-            { q: 'Quality of Work', text: 'The quality was better than I expected. The pond held water from the first rain.', author: 'Hopkins County Ranch Owner' },
-            { q: 'Personal Service', text: 'Aldo came out personally, walked the site with me, and gave me a straight honest quote.', author: 'Mt. Vernon Area Customer' }
+            { q: 'Honest & Fair', text: 'The honesty, work ethic, and attention to detail is very refreshing. The price is very fair also.', author: 'Tara O\'Bryan — Google Review' },
+            { q: 'Second to None', text: 'Character, service, earth sculpting skill, are all attributes Aldo and his team have.', author: 'Dwight Patton — Google Review' },
+            { q: 'Local & Trusted', text: 'Great family owned company around for house pads, ponds, grading and much more.', author: 'Seain Barrett — Google Review' }
           ].map(quote => (
             <div key={quote.q} className="max-w-4xl mx-auto text-center space-y-6">
               <Quote size={48} className="mx-auto text-primary-teal/20" />
