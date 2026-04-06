@@ -195,13 +195,16 @@ export const Footer = () => {
         <div>
           <h4 className="font-condensed text-primary-teal text-sm font-bold uppercase tracking-[0.2em] mb-6">Services</h4>
           <ul className="space-y-3">
-            {BUSINESS_INFO.services.map(item => (
-              <li key={item}>
-                <Link to="/excavation" className="text-white/70 hover:text-primary-teal transition-colors text-sm">
-                  {item}
-                </Link>
-              </li>
-            ))}
+            {BUSINESS_INFO.services.map(item => {
+              const isDelivery = item.toLowerCase().includes('sand') || item.toLowerCase().includes('rock') || item.toLowerCase().includes('gravel');
+              return (
+                <li key={item}>
+                  <Link to={isDelivery ? '/rock-delivery' : '/excavation'} className="text-white/70 hover:text-primary-teal transition-colors text-sm">
+                    {item}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
 

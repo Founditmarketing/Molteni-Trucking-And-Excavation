@@ -39,7 +39,7 @@ export const Contact = () => {
           {[
             { icon: <Phone />, label: 'Phone', val: BUSINESS_INFO.phone, link: `tel:${BUSINESS_INFO.phone}`, btn: 'Call Now' },
             { icon: <Mail />, label: 'Email', val: BUSINESS_INFO.email, link: `mailto:${BUSINESS_INFO.email}`, btn: 'Send Email' },
-            { icon: <MapPin />, label: 'Address', val: BUSINESS_INFO.address, link: '#', btn: 'Get Directions' }
+            { icon: <MapPin />, label: 'Address', val: BUSINESS_INFO.address, link: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(BUSINESS_INFO.address)}`, btn: 'Get Directions' }
           ].map((item, i) => (
             <div key={item.label} className={cn(
               "p-12 space-y-6 flex flex-col items-center text-center",
@@ -66,7 +66,7 @@ export const Contact = () => {
           <div className="space-y-12">
             <div>
               <Eyebrow>Ready to Start?</Eyebrow>
-              <h2 className="text-5xl md:text-6xl mb-8">Ready to Start?</h2>
+              <h2 className="text-5xl md:text-6xl mb-8">Tell Us About Your Project.</h2>
               <div className="bg-white p-8 border-l-8 border-primary-teal shadow-lg">
                 <p className="text-mid-grey leading-relaxed">
                   Every project starts with a free on-site consultation — we come to you, walk the property, and give you a straight quote at zero cost.
@@ -139,10 +139,12 @@ export const Contact = () => {
         <div className="max-w-7xl mx-auto space-y-12">
           <h2 className="text-5xl md:text-6xl text-white">Find Us in Sulphur Bluff.</h2>
           <div className="relative h-[400px] w-full bg-white/5">
-            <iframe 
-              src={`https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${encodeURIComponent(BUSINESS_INFO.address)}`}
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d854165.2584612259!2d-96.21796454797247!3d33.25122533319408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864a407298420c17%3A0xbee30ae1f675fd0c!2sALDO%20MOLTENI%20TRUCKING!5e0!3m2!1sen!2sus!4v1775511068993!5m2!1sen!2sus"
               className="w-full h-full border-none grayscale opacity-80"
               allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
             />
             <div className="absolute bottom-8 left-8 bg-primary-teal p-8 shadow-2xl text-white max-w-xs">
               <h4 className="font-display text-2xl mb-4">Service Area</h4>

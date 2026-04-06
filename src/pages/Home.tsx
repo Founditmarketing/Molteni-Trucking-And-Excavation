@@ -1,11 +1,39 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { ASSETS, BUSINESS_INFO } from '@/src/constants';
 import { Section, Button, Eyebrow, StatCounter } from '@/src/components/UI';
-import { ArrowRight, Star, Quote } from 'lucide-react';
+import { ArrowRight, Star, Quote, Search, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+const galleryImages = [
+  ASSETS.gallery.A,
+  ASSETS.gallery.B,
+  ASSETS.gallery.C,
+  ASSETS.gallery.D,
+  ASSETS.gallery.E,
+  ASSETS.gallery.F,
+  ASSETS.gallery.G,
+];
+
 export const Home = () => {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const openLightbox = (index: number) => setLightboxIndex(index);
+  const closeLightbox = () => setLightboxIndex(null);
+  const prevImage = useCallback(() => setLightboxIndex(i => i !== null ? (i - 1 + galleryImages.length) % galleryImages.length : null), []);
+  const nextImage = useCallback(() => setLightboxIndex(i => i !== null ? (i + 1) % galleryImages.length : null), []);
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'Escape') closeLightbox();
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [lightboxIndex, prevImage, nextImage]);
+
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
@@ -269,22 +297,102 @@ export const Home = () => {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="col-span-2 row-span-1 overflow-hidden group relative h-[300px]">
-            <img src={ASSETS.gallery.A} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+          <div
+            className="col-span-2 row-span-1 overflow-hidden group relative h-[300px] cursor-pointer"
+            onClick={() => openLightbox(0)}
+          >
+            <img src={galleryImages[0]} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Gallery image 1" />
             <div className="absolute inset-0 bg-primary-teal/55 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-              <div className="w-12 h-12 border-2 border-white flex items-center justify-center text-white">+</div>
+              <div className="w-12 h-12 border-2 border-white flex items-center justify-center text-white">
+                <Search size={20} />
+              </div>
             </div>
           </div>
-          {['B', 'C', 'D', 'E', 'F', 'G'].map((key) => (
-            <div key={key} className="overflow-hidden group relative h-[300px]">
-              <img src={ASSETS.gallery[key as keyof typeof ASSETS.gallery]} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+          {galleryImages.slice(1).map((src, i) => (
+            <div
+              key={i}
+              className="overflow-hidden group relative h-[300px] cursor-pointer"
+              onClick={() => openLightbox(i + 1)}
+            >
+              <img src={src} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt={`Gallery image ${i + 2}`} />
               <div className="absolute inset-0 bg-primary-teal/55 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <div className="w-12 h-12 border-2 border-white flex items-center justify-center text-white">+</div>
+                <div className="w-12 h-12 border-2 border-white flex items-center justify-center text-white">
+                  <Search size={20} />
+                </div>
               </div>
             </div>
           ))}
         </div>
       </Section>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {lightboxIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-[200] bg-near-black/97 flex items-center justify-center"
+            onClick={closeLightbox}
+          >
+            {/* Close */}
+            <button
+              className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-10"
+              onClick={closeLightbox}
+            >
+              <X size={36} />
+            </button>
+
+            {/* Counter */}
+            <div className="absolute top-6 left-1/2 -translate-x-1/2 font-condensed text-white/40 text-sm uppercase tracking-widest">
+              {lightboxIndex + 1} / {galleryImages.length}
+            </div>
+
+            {/* Prev */}
+            <button
+              className="absolute left-4 md:left-8 text-white/60 hover:text-primary-teal transition-colors z-10 p-2"
+              onClick={(e) => { e.stopPropagation(); prevImage(); }}
+            >
+              <ChevronLeft size={48} />
+            </button>
+
+            {/* Image */}
+            <motion.img
+              key={lightboxIndex}
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.96 }}
+              transition={{ duration: 0.2 }}
+              src={galleryImages[lightboxIndex]}
+              alt={`Gallery image ${lightboxIndex + 1}`}
+              className="max-h-[85vh] max-w-[85vw] object-contain shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+
+            {/* Next */}
+            <button
+              className="absolute right-4 md:right-8 text-white/60 hover:text-primary-teal transition-colors z-10 p-2"
+              onClick={(e) => { e.stopPropagation(); nextImage(); }}
+            >
+              <ChevronRight size={48} />
+            </button>
+
+            {/* Dot nav */}
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+              {galleryImages.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={(e) => { e.stopPropagation(); setLightboxIndex(i); }}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    i === lightboxIndex ? 'bg-primary-teal w-6' : 'bg-white/30 hover:bg-white/60'
+                  }`}
+                />
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Reviews Section */}
       <Section dark className="relative">
