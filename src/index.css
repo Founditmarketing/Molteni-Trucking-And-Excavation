@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-teal: #3fa396;
+  --color-teal-light: #5bc4b6;
+  --color-teal-dark: #286f66;
+  --color-near-black: #0d0e0d;
+  --color-dark-bg: #131513;
+  --color-dark-panel: #1c1f1c;
+  --color-off-white: #f4f5f2;
+  --color-mid-grey: #7a7f79;
+  --color-border-teal: rgba(63, 163, 150, 0.2);
+
+  --font-display: "Bebas Neue", sans-serif;
+  --font-condensed: "Barlow Condensed", sans-serif;
+  --font-body: "Barlow", sans-serif;
+}
+
+@layer base {
+  @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;500&display=swap");
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply font-body bg-white text-near-black antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display uppercase tracking-tight;
+  }
+
+  button, a {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+  }
+
+  button:active, a:active {
+    background-color: rgba(63, 163, 150, 0.15);
+  }
+}
+
+@layer utilities {
+  .text-stroke-teal {
+    -webkit-text-stroke: 2px #3fa396;
+    color: transparent;
+  }
+
+  .animated-grid {
+    background-image: linear-gradient(to right, rgba(63, 163, 150, 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(63, 163, 150, 0.07) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridDrift 20s linear infinite;
+  }
+
+  @keyframes gridDrift {
+    from { background-position: 0 0; }
+    to { background-position: 60px 60px; }
+  }
+
+  .teal-glow {
+    background: radial-gradient(circle, rgba(63, 163, 150, 0.22) 0%, transparent 70%);
+    animation: glowPulse 5s ease-in-out infinite alternate;
+  }
+
+  @keyframes glowPulse {
+    0% { transform: scale(1); opacity: 0.7; }
+    100% { transform: scale(1.1); opacity: 1; }
+  }
+
+  .diagonal-cut-bottom {
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+  }
+
+  .diagonal-cut-top {
+    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .visible {
+    opacity: 1;
+    transform: none !important;
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @keyframes scroll-drip {
+    0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+    50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+    50.1% { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+    100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+  }
+
+  .animate-scroll-drip {
+    animation: scroll-drip 1.8s infinite;
+  }
+}
