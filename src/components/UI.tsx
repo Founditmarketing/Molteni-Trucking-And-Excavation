@@ -22,7 +22,12 @@ export const Button = ({ variant = 'primary', children, className, onClick, ...p
       )}
       {...props}
     >
-      <span className="relative z-10 transition-colors duration-300 group-hover:text-primary-teal group-hover:mix-blend-difference">
+      <span className={cn(
+        "relative z-10 transition-colors duration-300",
+        variant === 'primary' && "text-white group-hover:text-primary-teal",
+        variant === 'outline' && "text-primary-teal group-hover:text-white",
+        variant === 'dark' && "text-white group-hover:text-primary-teal"
+      )}>
         {children}
       </span>
       <div 
