@@ -35,10 +35,6 @@
     -webkit-tap-highlight-color: transparent;
     outline: none;
   }
-
-  button:active, a:active {
-    background-color: rgba(63, 163, 150, 0.15);
-  }
 }
 
 @layer utilities {
